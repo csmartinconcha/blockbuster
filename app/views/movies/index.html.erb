@@ -2,13 +2,16 @@
 
 <h1>Movies</h1>
 
-<table>
+<table  border= '1'>
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
       <th colspan="3"></th>
+      <th>image</th>
+      
     </tr>
+    
   </thead>
 
   <tbody>
@@ -19,6 +22,8 @@
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= movie.title %></td>
+        <td><%= image_tag(url_for(movie.image), width: 100, height: 100 ) if movie.image.attached? %></td>
       </tr>
     <% end %>
   </tbody>
